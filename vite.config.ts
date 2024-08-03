@@ -32,6 +32,15 @@ module.exports = defineConfig({
       formats,
       fileName: (format) => fileName[format],
     },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+    }
   },
   test: {
 

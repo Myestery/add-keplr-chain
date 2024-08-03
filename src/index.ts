@@ -1,4 +1,2 @@
-// import { DefaultChains } from "./DefaultChains";
-import { KeplrAddChainButton } from "./KeplrAddChainButton";
-export { KeplrAddChainButton };
-// export { DefaultChains };
+import { KeplrAddChainButton as Btn } from "./KeplrAddChainButton";
+export default Btn;

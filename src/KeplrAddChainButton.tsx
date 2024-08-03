@@ -1,6 +1,6 @@
 import "./types";
 
-import React, { useState } from "react";
+import * as React from 'react';
 
 import type { ChainInfo } from "@keplr-wallet/types";
 
@@ -45,10 +45,10 @@ const KeplrAddChainButton: React.FC<KeplrAddChainButtonProps> = ({
   errorStyle,
   errorClassName,
   renderButton,
-  renderStatus
+  renderStatus,
 }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [status, setStatus] = React.useState<"idle" | "success" | "error">("idle");
 
   const addChainToKeplr = async () => {
     setIsLoading(true);
@@ -119,4 +119,3 @@ const KeplrAddChainButton: React.FC<KeplrAddChainButtonProps> = ({
   );
 };
 export { KeplrAddChainButton };
-export default KeplrAddChainButton;
