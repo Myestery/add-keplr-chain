@@ -1,0 +1,48 @@
+{
+  "name": "add-keplr-chain",
+  "version": "0.0.1",
+  "description": "Adds chains to Keplr Wallet",
+  "main": "./dist/add-keplr-chain.cjs",
+  "keywords": [
+    "keplr",
+    "cosmos",
+    "blockchain",
+    "wallet",
+    "react"
+  ],
+  "module": "./dist/add-keplr-chain.mjs",
+  "exports": {
+    ".": {
+      "require": "./dist/add-keplr-chain.cjs",
+      "import": "./dist/add-keplr-chain.mjs"
+    }
+  },
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts",
+    "test": "vitest",
+    "tsc": "tsc",
+    "format:scripts": "prettier . --write",
+    "format:styles": "stylelint ./**/*.{css,scss} --fix",
+    "format": "npm run format:scripts && npm run format:styles"
+  },
+  "files": [
+    "dist",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@keplr-wallet/types": "^0.11.51",
+    "@types/react": "^18.0.0",
+    "dts-bundle-generator": "^9.5.1",
+    "typescript": "^4.9.5",
+    "vite": "^5.3.5",
+    "vitest": "^2.0.5"
+  },
+  "author": "myestery",
+  "license": "MIT"
+}
