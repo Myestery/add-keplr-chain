@@ -18,7 +18,7 @@
   "module": "./dist/add-keplr-chain.mjs",
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts && tsc",
+    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts",
     "test": "vitest",
     "tsc": "tsc",
     "format:scripts": "prettier . --write",

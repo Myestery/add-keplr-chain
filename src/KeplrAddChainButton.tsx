@@ -1,6 +1,6 @@
 import "./types";
 
-import * as React from 'react';
+import * as React from "react";
 
 import type { ChainInfo } from "@keplr-wallet/types";
 
@@ -8,14 +8,10 @@ interface KeplrAddChainButtonProps {
   chainInfo: ChainInfo;
   buttonText?: string;
   loadingText?: string;
-  successText?: string;
-  errorText?: string;
   onSuccess?: () => void;
   onError?: (error: Error) => void;
   buttonStyle?: React.CSSProperties;
   buttonClassName?: string;
-  successStyle?: React.CSSProperties;
-  successClassName?: string;
   errorStyle?: React.CSSProperties;
   errorClassName?: string;
   renderButton?: (props: {
@@ -24,35 +20,21 @@ interface KeplrAddChainButtonProps {
     isLoading: boolean;
     text: string;
   }) => React.ReactNode;
-  renderStatus?: (
-    status: "idle" | "success" | "error",
-    text: string
-  ) => React.ReactNode;
 }
 
 const KeplrAddChainButton: React.FC<KeplrAddChainButtonProps> = ({
   chainInfo,
   buttonText = "Add Chain to Keplr",
   loadingText = "Adding...",
-  successText = "Chain added successfully!",
-  errorText = "Failed to add chain. Please try again.",
   onSuccess,
   onError,
   buttonStyle,
   buttonClassName,
-  successStyle,
-  successClassName,
-  errorStyle,
-  errorClassName,
   renderButton,
-  renderStatus,
 }) => {
   const [isLoading, setIsLoading] = React.useState(false);
-  const [status, setStatus] = React.useState<"idle" | "success" | "error">("idle");
-
   const addChainToKeplr = async () => {
     setIsLoading(true);
-    setStatus("idle");
 
     try {
       if (!window.keplr) {
@@ -62,11 +44,11 @@ const KeplrAddChainButton: React.FC<KeplrAddChainButtonProps> = ({
       await window.keplr.experimentalSuggestChain(chainInfo);
       await window.keplr.enable(chainInfo.chainId);
 
-      setStatus("success");
       onSuccess?.();
     } catch (error) {
-      console.error("Failed to add chain to Keplr:", error);
-      setStatus("error");
+      if (!onError) {
+        console.error("Failed to add chain to Keplr:", error);
+      }
       onError?.(
         error instanceof Error ? error : new Error("Unknown error occurred")
       );
@@ -96,26 +78,6 @@ const KeplrAddChainButton: React.FC<KeplrAddChainButtonProps> = ({
       })
     : defaultButton;
 
-  const statusMessage =
-    status === "success" ? (
-      <p style={successStyle} className={successClassName}>
-        {successText}
-      </p>
-    ) : status === "error" ? (
-      <p style={errorStyle} className={errorClassName}>
-        {errorText}
-      </p>
-    ) : null;
-
-  const customStatus = renderStatus
-    ? renderStatus(status, status === "success" ? successText : errorText)
-    : statusMessage;
-
-  return (
-    <div>
-      {customButton}
-      {customStatus}
-    </div>
-  );
+  return <div>{customButton}</div>;
 };
 export { KeplrAddChainButton };
