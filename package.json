@@ -10,6 +10,10 @@
     "wallet",
     "react"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:myestery/add-keplr-chain.git"
+  },
   "module": "./dist/add-keplr-chain.mjs",
   "exports": {
     ".": {
