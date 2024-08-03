@@ -1,6 +1,6 @@
 {
   "name": "add-keplr-chain",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Adds chains to Keplr Wallet",
   "main": "./dist/add-keplr-chain.cjs",
   "types": "./dist/add-keplr-chain.d.ts",

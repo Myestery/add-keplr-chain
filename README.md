@@ -72,6 +72,7 @@ const chainInfo = {
   chainInfo={chainInfo}
   buttonText='Add Nillion Testnet'
   loadingText='Adding Chain...'
+  buttonClassName='px-6 py-3 text-lg font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 active:bg-blue-800 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 mb-4'
 />;
 ```
 
@@ -133,16 +134,13 @@ import KeplrAddChainButton from "add-keplr-chain";
 
 ### Props
 
-| Prop Name | Type | Description |
-| --------- | ---- | ----------- |
-| chainInfo | object | The chain object that contains the chain information. |
-| buttonText | string | The text to display on the button. |
-| loadingText | string | The text to display on the button when the chain is being added. |
-| renderButton | function | A function that returns a custom button. |
-| onSuccess | function | A function that is called when the chain is successfully added. |
-| onError | function | A function that is called when an error occurs while adding the chain. |
-| buttonStyle | object | The style object to apply to the button. |
-| buttonClassName | string | The class name to apply to the button. |
-
-
-
+| Prop Name       | Type     | Description                                                            |
+| --------------- | -------- | ---------------------------------------------------------------------- |
+| chainInfo       | object   | The chain object that contains the chain information.                  |
+| buttonText      | string   | The text to display on the button.                                     |
+| loadingText     | string   | The text to display on the button when the chain is being added.       |
+| renderButton    | function | A function that returns a custom button.                               |
+| onSuccess       | function | A function that is called when the chain is successfully added.        |
+| onError         | function | A function that is called when an error occurs while adding the chain. |
+| buttonStyle     | object   | The style object to apply to the button.                               |
+| buttonClassName | string   | The class name to apply to the button.                                 |
