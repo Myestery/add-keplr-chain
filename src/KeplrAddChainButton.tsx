@@ -12,14 +12,13 @@ interface KeplrAddChainButtonProps {
   onError?: (error: Error) => void;
   buttonStyle?: React.CSSProperties;
   buttonClassName?: string;
-  errorStyle?: React.CSSProperties;
-  errorClassName?: string;
   renderButton?: (props: {
     onClick: () => void;
     disabled: boolean;
     isLoading: boolean;
     text: string;
   }) => React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const KeplrAddChainButton: React.FC<KeplrAddChainButtonProps> = ({
@@ -31,6 +30,7 @@ const KeplrAddChainButton: React.FC<KeplrAddChainButtonProps> = ({
   buttonStyle,
   buttonClassName,
   renderButton,
+  children = <></>,
 }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const addChainToKeplr = async () => {
@@ -65,7 +65,7 @@ const KeplrAddChainButton: React.FC<KeplrAddChainButtonProps> = ({
       disabled={isLoading}
       style={buttonStyle}
       className={buttonClassName}>
-      {buttonContent}
+      {buttonContent || children}
     </button>
   );
 
