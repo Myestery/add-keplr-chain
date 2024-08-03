@@ -23,7 +23,7 @@
   },
   "scripts": {
     "dev": "vite --host",
-    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts",
+    "build": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts && tsc",
     "test": "vitest",
     "tsc": "tsc",
     "format:scripts": "prettier . --write",
@@ -37,7 +37,8 @@
   ],
   "peerDependencies": {
     "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
+    "react-dom": ">=16.0.0",
+    "@keplr-wallet/types": "^0.11.51"
   },
   "devDependencies": {
     "@keplr-wallet/types": "^0.11.51",
